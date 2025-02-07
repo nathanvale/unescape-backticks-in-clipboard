@@ -1,6 +1,6 @@
 import { Clipboard, showHUD } from "@raycast/api";
 
-async function unescapeBackticksInClipboard() {
+async function unescapeBackticksFromClipboard() {
   try {
     // Read the current clipboard content
     const clipboardContent = await Clipboard.readText();
@@ -10,7 +10,7 @@ async function unescapeBackticksInClipboard() {
     }
 
     // Replace occurrences of \` with `
-    const updatedContent = clipboardContent.replace(/\\`/g, "`");
+    const updatedContent = clipboardContent.replace(/\\\\\\`/g, "`");
 
     // Write the updated content back to the clipboard
     await Clipboard.paste(updatedContent);
@@ -23,4 +23,4 @@ async function unescapeBackticksInClipboard() {
   }
 }
 
-export default unescapeBackticksInClipboard;
+export default unescapeBackticksFromClipboard;
